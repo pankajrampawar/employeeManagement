@@ -98,9 +98,9 @@ class ShiftSchedulerApp:
         assigned_shifts = ""
         for shift in self.scheduler.shifts:
             if shift.assigned_employee:
-                assigned_shifts += f"Shift at {shift.time} assigned to {shift.assigned_employee.name}\n"
+                assigned_shifts += f"Shift at {shift.time} assigned to {shift.assigned_employee.name} for {shift.skill_required}\n"
             else:
-                assigned_shifts += f"No employee assigned for shift at {shift.time}\n"
+                assigned_shifts += f"No suitable employee found for shift at {shift.time} requiring {shift.skill_required}\n"
         self.assigned_shifts_text.delete(1.0, tk.END)
         self.assigned_shifts_text.insert(tk.END, assigned_shifts)
 
